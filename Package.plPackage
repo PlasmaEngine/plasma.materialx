@@ -1,0 +1,57 @@
+// plasma.materialx — imports MaterialX (.mtlx) documents as material assets.
+//
+// The AUTHORED manifest, kept in source next to the plugin. It declares identity, compatibility,
+// what to load and what to ship. Component hashes and sizes are NOT here: the packaging step
+// computes those and emits them into the published manifest that ships inside the .plpkg.
+
+PackageInfo
+{
+	// ---- identity -------------------------------------------------------------
+	string %Id{"plasma.materialx"}
+	string %Version{"0.2.2"}
+	string %Publisher{"PlasmaTechnology"}
+	// MaterialX itself is Apache-2.0 and is compiled into the plugin, so its licence
+	// ships in the editor component alongside the binary.
+	string %License{"MIT"}
+	string %Homepage{"https://plasmagameengine.com"}
+
+	// ---- compatibility --------------------------------------------------------
+	string %MinEngineVersion{"0.11.2"}
+	string %MaxEngineVersion{"0.11.2"}
+	string %AbiTag{"win64-msvc19-0.11.2-abi6-dev"}
+
+	// ---- presentation ---------------------------------------------------------
+	string %DisplayName{"MaterialX"}
+	string %Category{"Rendering"}
+	string %Description{"Imports MaterialX (.mtlx) documents as material assets. Recognises the standard_surface, OpenPBR, glTF PBR and UsdPreviewSurface shaders and maps them onto the engine's OpenPBR material, reporting any input it could not represent. Editor only - nothing is added to a shipped game."}
+	string %Icon{"Branding/MaterialXIcon.png"}
+	string %Banner{"Branding/MaterialXBanner.png"}
+
+	// ---- binaries -------------------------------------------------------------
+	// Editor only. A .mtlx becomes a material asset at import time; nothing about it
+	// survives into the runtime, which consumes the baked material like any other.
+	string %EditorPlugins{"plEditorPluginMaterialX"}
+	string %EditorEnginePlugins{}
+	string %RuntimePlugins{}
+	string %PackageDependencies{}
+
+	// ---- data -----------------------------------------------------------------
+	// The MaterialX standard node definitions, under Assets/MaterialXLibraries.
+	//
+	// What goes into the "assets" component is decided by the Mount entries, not by a Path
+	// on the component itself. The folder must be called "Assets": the local package
+	// installer copies a fixed set of directory names rather than reading the mounts, so a
+	// mount pointing anywhere else installs nothing and the data is missing at runtime.
+	Mount { string %Path{"Assets"} string %RootName{"plasma.materialx"} bool %Writable{false} }
+
+	// ---- components -----------------------------------------------------------
+	Component { string %Name{"manifest"} string %Platform{"any"} }
+	Component { string %Name{"editor-win64"} string %Platform{"win64"} }
+	Component { string %Name{"icon"} string %Platform{"any"} }
+	Component { string %Name{"banner"} string %Platform{"any"} }
+
+	// Not optional: without the standard node definitions a document that uses one -
+	// which is nearly all of them - resolves to a node with no inputs and imports as a
+	// blank material rather than as an error.
+	Component { string %Name{"assets"} string %Platform{"any"} }
+}

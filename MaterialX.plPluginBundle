@@ -1,0 +1,24 @@
+// for a description of the options see:
+// https://plengine.net/pages/docs/editor/editor-plugins.html
+
+PluginInfo
+{
+	string %DisplayName{"MaterialX"}
+	string %Category{"Rendering"}
+	string %MinEngineVersion{"0.11.2"}
+	string %MaxEngineVersion{"0.11.2"}
+	string %Icon{"MaterialXIcon.png"}
+	string %Banner{"MaterialXBanner.png"}
+	string %Description{"Imports MaterialX (.mtlx) documents as material assets. Recognises the standard_surface, OpenPBR, glTF PBR and UsdPreviewSurface shaders and maps them onto the engine's OpenPBR material. Editor only - nothing is added to a shipped game."}
+	string %EditorPlugins{"plEditorPluginMaterialX"}
+	string %EditorEnginePlugins{}
+	string %RuntimePlugins{}
+	string %PackageDependencies{}
+	string %RequiredPlugins{}
+	string %ExclusiveFeatures{}
+	string %EnabledInTemplates{}
+	// Declares the file types this bundle imports, so a project that opens without the bundle enabled
+	// can be told which package to turn on rather than reporting an unsupported file type.
+	string %ImporterFileTypes{"mtlx"}
+	string %PlasmaBuildTargetName{"EditorPluginMaterialX"}
+}
