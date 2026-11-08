@@ -8,7 +8,7 @@ PackageInfo
 {
 	// ---- identity -------------------------------------------------------------
 	string %Id{"plasma.materialx"}
-	string %Version{"0.2.2"}
+	string %Version{"0.3.0"}
 	string %Publisher{"PlasmaTechnology"}
 	// MaterialX itself is Apache-2.0 and is compiled into the plugin, so its licence
 	// ships in the editor component alongside the binary.
@@ -16,9 +16,9 @@ PackageInfo
 	string %Homepage{"https://plasmagameengine.com"}
 
 	// ---- compatibility --------------------------------------------------------
-	string %MinEngineVersion{"0.11.2"}
-	string %MaxEngineVersion{"0.11.2"}
-	string %AbiTag{"win64-msvc19-0.11.2-abi6-dev"}
+	string %MinEngineVersion{"0.12.0"}
+	string %MaxEngineVersion{"0.12.0"}
+	string %AbiTag{"win64-msvc19-0.12.0-abi7-dev"}
 
 	// ---- presentation ---------------------------------------------------------
 	string %DisplayName{"MaterialX"}

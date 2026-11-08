@@ -5,8 +5,8 @@ PluginInfo
 {
 	string %DisplayName{"MaterialX"}
 	string %Category{"Rendering"}
-	string %MinEngineVersion{"0.11.2"}
-	string %MaxEngineVersion{"0.11.2"}
+	string %MinEngineVersion{"0.12.0"}
+	string %MaxEngineVersion{"0.12.0"}
 	string %Icon{"MaterialXIcon.png"}
 	string %Banner{"MaterialXBanner.png"}
 	string %Description{"Imports MaterialX (.mtlx) documents as material assets. Recognises the standard_surface, OpenPBR, glTF PBR and UsdPreviewSurface shaders and maps them onto the engine's OpenPBR material. Editor only - nothing is added to a shipped game."}
